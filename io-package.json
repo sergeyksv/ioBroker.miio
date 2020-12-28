@@ -53,11 +53,11 @@
             },
             "0.0.2": {
                 "en": "Add new device support. Fix some TS lint error",
-                "de": "Neue Geräteunterstützung hinzufügen. Beheben Sie einen TS-Fusselfehler",
+                "de": "Neue Geräteunterstützung hinzufügen. Beheben Sie einen TS-Fusselfehler"
             },
             "0.0.1": {
                 "en": "initial release",
-                "de": "Erstveröffentlichung",
+                "de": "Erstveröffentlichung"
             }
         },
         "title": "Xiaomi miIO protocol device",
