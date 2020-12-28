@@ -6,6 +6,7 @@ nbproject
 lib/Properties/generate.py
 lib/Properties/proplist
 test.js
+package-lock.json
 
 # npm package files
 iobroker.*.tgz

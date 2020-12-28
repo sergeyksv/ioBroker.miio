@@ -62,16 +62,20 @@
                 }
             });
             var temp = table2values('values');
-            $.each(temp, function (i, val) {
-                if (val.name.indexOf(' ') !== -1) {
-                    showToast(_('No spaces in device name'));
-                }
-                temp[i].name = temp[i].name.replace(/ /g, '_');
+            if (temp.length === 0) {
+                obj.devices = [];
+            } else {
+                $.each(temp, function (i, val) {
+                    if (val.name.indexOf(' ') !== -1) {
+                        showToast(_('No spaces in device name'));
+                    }
+                    temp[i].name = temp[i].name.replace(/ /g, '_');
 
-                if (i + 1 === temp.length) {
-                    obj.devices = temp
-                }
-            });
+                    if (i + 1 === temp.length) {
+                        obj.devices = temp
+                    }
+                });
+            }
             callback(obj);
         }
     </script>
@@ -111,6 +115,7 @@
                                     <th data-name="_index" style="width: 40px" class="translate"></th>
 
                                     <th data-name="name" style="width: 30%" class="translate">Name</th>
+                                    <th data-name="id" class="translate">miIO ID</th>
                                     <th data-name="ip" class="translate">IP adress</th>
                                     <th data-name="token" class="translate">Token</th>
                                     <th data-name="polling" class="translate">Polling</th>

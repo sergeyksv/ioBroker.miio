@@ -1,8 +1,92 @@
 {
     "common": {
         "name": "miio",
-        "version": "0.0.6",
+        "version": "0.0.14",
         "news": {
+            "0.0.13": {
+                "en": "Fix device can not control after adapter restart",
+                "de": "Fix Gerät kann nach Adapter-Neustart nicht kontrollieren",
+                "ru": "Исправить устройство не может контролировать после перезагрузки адаптера",
+                "pt": "O dispositivo de correção não pode controlar após a reinicialização do adaptador",
+                "nl": "Fix-apparaat kan niet controleren nadat de adapter opnieuw is opgestart",
+                "fr": "Le périphérique fixe ne peut pas contrôler après le redémarrage de l'adaptateur",
+                "it": "Il dispositivo di correzione non può controllare dopo il riavvio dell'adattatore",
+                "es": "El dispositivo fijo no puede controlar después de reiniciar el adaptador",
+                "pl": "Napraw urządzenie nie może kontrolować po ponownym uruchomieniu adaptera",
+                "zh-cn": "修复适配器重启后，设备无法控制"
+            },
+            "0.0.12": {
+                "en": "Change channel object to device object",
+                "de": "Kanalobjekt in Geräteobjekt ändern",
+                "ru": "Изменить объект канала на объект устройства",
+                "pt": "Alterar objeto do canal para objeto do dispositivo",
+                "nl": "Wijzig kanaalobject in apparaatobject",
+                "fr": "Changer d'objet de canal en objet de périphérique",
+                "it": "Cambia l'oggetto canale in oggetto dispositivo",
+                "es": "Cambiar objeto de canal a objeto de dispositivo",
+                "pl": "Zmień obiekt kanału na obiekt urządzenia",
+                "zh-cn": "将通道对象更改为设备对象"
+            },
+            "0.0.11": {
+                "en": "Remove unused function",
+                "de": "Nicht verwendete Funktion entfernen",
+                "ru": "Удалить неиспользуемую функцию",
+                "pt": "Remova a função não utilizada",
+                "nl": "Verwijder ongebruikte functie",
+                "fr": "Supprimer la fonction inutilisée",
+                "it": "Rimuovi la funzione non utilizzata",
+                "es": "Eliminar la función no utilizada",
+                "pl": "Usuń nieużywaną funkcję",
+                "zh-cn": "删除未使用的功能"
+            },
+            "0.0.10": {
+                "en": "Fix can not controll device issue",
+                "de": "Fix kann Geräteproblem nicht kontrollieren",
+                "ru": "Исправление не может контролировать проблему устройства",
+                "pt": "Correção não pode controlar o problema do dispositivo",
+                "nl": "Fix kan het probleem met het apparaat niet regelen",
+                "fr": "Fix ne peut pas contrôler le problème de périphérique",
+                "it": "La correzione non può risolvere il problema del dispositivo",
+                "es": "La solución no puede controlar el problema del dispositivo",
+                "pl": "Napraw nie może kontrolować problemu z urządzeniem",
+                "zh-cn": "修复无法控制设备问题"
+            },
+            "0.0.9": {
+                "en": "Fix delete device and discover devices issue",
+                "de": "Behebung eines Problems mit dem Löschen von Geräten und Ermitteln von Geräten",
+                "ru": "Исправить удаление устройства и обнаружить проблему устройств",
+                "pt": "Corrigir dispositivo de exclusão e descobrir problemas de dispositivos",
+                "nl": "Fix verwijder apparaat en ontdek apparaten probleem",
+                "fr": "Résolution du problème de suppression de périphérique et de découverte de périphériques",
+                "it": "Risolvi il problema con il dispositivo di eliminazione e scopri i dispositivi",
+                "es": "Arreglar eliminar dispositivo y descubrir problema de dispositivos",
+                "pl": "Napraw usunięcie urządzenia i wykrycie problemu z urządzeniami",
+                "zh-cn": "修复删除设备并发现设备问题"
+            },
+            "0.0.8": {
+                "en": "NEED UPLOAD MANUALLY！ use TS instead nodejs. Sync device ip based on token ",
+                "de": "NOTWENDIGES MANUELLES HOCHLADEN！ Verwenden Sie TS anstelle von nodejs. Synchronisieren Sie die Geräte-IP anhand des Tokens",
+                "ru": "НЕОБХОДИМО ЗАГРУЗИТЬ ВРУЧНУЮ！ используйте TS вместо nodejs. Синхронизировать ip устройства на основе токена",
+                "pt": "PRECISA DE CARREGAR MANUALMENTE！ use TS em vez de nodejs. Sincronizar o dispositivo ip com base no token",
+                "nl": "UPLOAD MANUEEL NODIG! Gebruik TS in plaats daarvan nodejs. Apparaat synchroniseren op basis van token",
+                "fr": "NEED UPLOAD MANUALLY！ utilisez TS à la place de nodejs. Synchroniser l'ip de l'appareil en fonction du jeton",
+                "it": "BISOGNO DI UPLOAD MANUALMENTE! Usa TS invece nodejs. Sincronizza l'ip del dispositivo in base al token",
+                "es": "NECESITA CARGAR MANUALMENTE！ use TS en lugar de nodejs. Dispositivo de sincronización ip basado en token",
+                "pl": "POTRZEBUJ RĘCZNIE PRZESYŁAJ！ użyj TS zamiast nodejs. Synchronizuj urządzenie IP na podstawie tokena",
+                "zh-cn": "需要手动上传！使用TS代替nodejs。基于token同步设备ip"
+            },
+            "0.0.7": {
+                "en": "Add zhimi fan support",
+                "de": "Fügen Sie Unterstützung für Zhimi-Fans hinzu",
+                "ru": "Добавить поддержку поклонников Жими",
+                "pt": "Adicionar zhimi fan support",
+                "nl": "Voeg ondersteuning toe voor zhimi-fans",
+                "fr": "Ajouter le support de fan zhimi",
+                "it": "Aggiungi il supporto per i fan di zhimi",
+                "es": "Añadir soporte para fan de zhimi",
+                "pl": "Dodaj obsługę wentylatora zhimi",
+                "zh-cn": "添加智米风扇支持"
+            },
             "0.0.6": {
                 "en": "Add power load for chuangmi plug",
                 "de": "Fügen Sie die Stromlast für den Chuangmi-Stecker hinzu",
@@ -108,11 +192,14 @@
             "ioBroker",
             "template",
             "Smart Home",
-            "home automation"
+            "home automation",
+            "xiaomi",
+            "miio",
+            "mijia"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
-        "main": "main.js",
+        "main": "build/main.js",
         "icon": "miio.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/smarthomefans/ioBroker.miio/master/admin/miio.png",
@@ -122,10 +209,12 @@
         "type": "iot-systems",
         "compact": true,
         "materialize": true,
-        "materializeTab": true,
         "dependencies": [
             {
                 "admin": ">=3.0.0"
+            },
+            {
+                "js-controller": ">=1.4.2"
             }
         ]
     },
@@ -135,5 +224,27 @@
         "devices": []
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }

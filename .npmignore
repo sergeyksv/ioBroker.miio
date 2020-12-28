@@ -13,7 +13,15 @@ appveyor.yml
 .travis.yaml
 appveyor.yaml
 
+src/
+tsconfig.json
+tsconfig.*.json
+
 .eslintrc.json
+.eslintrc.js
+
+# Sourcemaps
+maps/
 
 # npm package files
 iobroker.*.tgz
@@ -24,3 +32,13 @@ admin/i18n
 
 # maintenance scripts
 maintenance/**
+
+installToib.sh 
+testClass.js
+test.js
+.vscode/
+.github/
+lib/Properties/generate.py
+lib/Properties/proplist
+
+.DS_Store
