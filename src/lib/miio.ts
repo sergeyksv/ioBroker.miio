@@ -12,7 +12,7 @@ export interface OptionDeviceDefine {
 
 interface Option {
     devicesDefined?: OptionDeviceDefine[];
-    interval?: number
+    interval?: number;
     autoDiscover?: boolean;
     autoDiscoverTimeout?: number;
 };
@@ -51,7 +51,7 @@ export class Controller extends EventEmitter {
         this.deviceRegistered = {};
     }
 
-    public discoverDevices(timeoutS: number) {
+    public discoverDevices(timeoutS: number): void {
         this.browser = miio.browse({
             cacheTime: 1800
         });
@@ -80,7 +80,7 @@ export class Controller extends EventEmitter {
         }, timeoutS * 1000);
     }
 
-    public stop() {
+    public stop(): void {
         for (const id in this.deviceRegistered) {
             this.deviceRegistered[id].device.miioDevice.destroy();
         }
@@ -89,7 +89,7 @@ export class Controller extends EventEmitter {
         }
     }
 
-    public async listen() {
+    public async listen(): Promise<void> {
         // Connect to user defined device
         for (let i = 0; i < this.devicesDefined.length; i++) {
             const dev = this.devicesDefined[i];
@@ -114,7 +114,7 @@ export class Controller extends EventEmitter {
         return;
     }
 
-    public async setState(id: string, state: string, val: any) {
+    public async setState(id: string, state: string, val: any): Promise<void> {
         if (!this.deviceRegistered[id] || !this.deviceRegistered[id].device) {
             this.emit("warning", id + " set unregistered device state");
             return;
@@ -132,7 +132,7 @@ export class Controller extends EventEmitter {
         }
     }
 
-    private async findBestMatchDevice(dev: miio.Device, vendor: string, type: string, version: string) {
+    private async findBestMatchDevice(dev: miio.Device, vendor: string, type: string, version: string): Promise<any> {
         const versionN = version.replace(/\d+$/, "");
         let DeviceClass;
 
@@ -158,10 +158,10 @@ export class Controller extends EventEmitter {
                 }
             }
         }
-        return new DeviceClass.DeviceClass(dev);
+        return new DeviceClass.DeviceClass(dev, vendor, type, version);
     }
 
-    private findDeviceDefineInfo(token: string) {
+    private findDeviceDefineInfo(token: string): OptionDeviceDefine {
         for (let i = 0; i < this.devicesDefined.length; i++) {
             const dev = this.devicesDefined[i];
             if (dev.token == token) {
@@ -171,7 +171,7 @@ export class Controller extends EventEmitter {
         return {};
     }
 
-    private unregisterDevice(dev: miio.Device) {
+    private unregisterDevice(dev: miio.Device): void {
         const miioID = dev.id.replace(/^miio:/, "");
         if (!miioID) {
             this.emit("warning", "Cannot remove device without Device ID");
@@ -189,7 +189,7 @@ export class Controller extends EventEmitter {
     }
 
     // TODO: fix. Only need public for test
-    public async registerDevice(dev: miio.Device, isAutoDiscovered: boolean) {
+    public async registerDevice(dev: miio.Device, isAutoDiscovered: boolean): Promise<void> {
         const miioID = dev.id.replace(/^miio:/, "");
         if (this.deviceRegistered[miioID]) {
             this.emit("info", miioID + " Already registed.");
@@ -231,10 +231,11 @@ export class Controller extends EventEmitter {
                 model: mgmt.model,
             },
             configData: {
+                id: miioID,
                 name: this.findDeviceDefineInfo(mgmt.token).name || mgmt.model,
                 ip: mgmt.address,
                 token: mgmt.token,
-                polling: this.findDeviceDefineInfo(mgmt.token).polling || device.polling,
+                polling: this.findDeviceDefineInfo(mgmt.token).polling || device.polling || 10000,
             },
             autoDiscovered: isAutoDiscovered,
             device: device

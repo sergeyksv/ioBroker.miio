@@ -2,6 +2,11 @@ import { EventEmitter } from "events";
 import { objectExtend } from "../tools";
 import { MiioCommand } from "../Commands/command";
 import { MiioProperty } from "../Properties/property";
+import {
+    protocol2ReadWriteState,
+    protocol2ReadOnlyState,
+    protocol2WriteOnlyState,
+} from "./protocol2State";
 import * as miio from "miio-lite";
 
 export interface MiioAdapterRWState {
@@ -18,24 +23,24 @@ export interface MiioAdapterWOState {
 };
 
 export class MiioAdapterDevice extends EventEmitter {
-    public get deviceName() {
-        return "Device";
+    public get deviceName(): string {
+        return `${this.vendor}.${this.type}.${this.version}`;
     }
 
-    public get deviceType() {
+    public get deviceType(): string {
         return "MiioAdapterDevice";
     }
 
     public get rwState(): Record<string, MiioAdapterRWState> {
-        return {};
+        return protocol2ReadWriteState(this.vendor, this.type, this.version);
     }
 
     public get roState(): Record<string, MiioAdapterROState> {
-        return {};
+        return protocol2ReadOnlyState(this.vendor, this.type, this.version);
     }
 
     public get woState(): Record<string, MiioAdapterWOState> {
-        return {};
+        return protocol2WriteOnlyState(this.vendor, this.type, this.version);
     }
 
     public get states(): Record<string,ioBroker.StateCommon> {
@@ -64,8 +69,8 @@ export class MiioAdapterDevice extends EventEmitter {
     }
 
     public static transState(rw: Record<string, MiioAdapterRWState>,
-                             ro: Record<string, MiioAdapterROState>,
-                             wo: Record<string, MiioAdapterWOState>) {
+        ro: Record<string, MiioAdapterROState>,
+        wo: Record<string, MiioAdapterWOState>): Record<string, ioBroker.StateCommon> {
         const states: Record<string, ioBroker.StateCommon> = {};
 
         for (const k in rw) {
@@ -173,29 +178,35 @@ export class MiioAdapterDevice extends EventEmitter {
 
         this.miioDev = miioDev;
         this.miioID = miioDev.id.replace(/^miio:/, "");
+        this.vendor = miioDev.management.model.split(".")[0];
+        this.type = miioDev.management.model.split(".")[2];
+        this.version = miioDev.management.model.split(".")[3];
         this.props = {};
         // WARNING: Hack miio lib
         this.miioDev.propertyUpdated = this.propertyUpdated.bind(this);
     }
 
     private miioDev: miio.Device;
+    private vendor: string;
+    private type: string;
+    private version: string;
     private miioID: string;
     private props: Record<string, MiioProperty>;
 
     // TODO: fix any
-    public attributeUpdate(state: string, val: any) {
+    public attributeUpdate(state: string, val: any): void {
         this.emit("attrUpdate", this.miioID, state, val);
     }
 
-    public get miioDevice() {
+    public get miioDevice(): miio.Device {
         return this.miioDev;
     }
 
-    public getDeviceID() {
+    public getDeviceID(): string {
         return this.miioID;
     }
 
-    public get properties() {
+    public get properties(): Record<string, MiioProperty> {
         const properties: Record<string, MiioProperty> = {};
 
         for (const k in this.rwState) {
@@ -212,7 +223,7 @@ export class MiioAdapterDevice extends EventEmitter {
         return properties;
     }
 
-    public get commands() {
+    public get commands(): Record<string, MiioCommand> {
         const commands: Record<string, MiioCommand> = {};
 
         for (const k in this.rwState) {
@@ -230,7 +241,7 @@ export class MiioAdapterDevice extends EventEmitter {
     }
 
     // TODO: fix any
-    public async invokeCommand(cmd: MiioCommand, val: any) {
+    public async invokeCommand(cmd: MiioCommand, val: any): Promise<void|boolean> {
         const cc = cmd.command;
         const cvl = [];
         const valType = typeof val;
@@ -299,7 +310,7 @@ export class MiioAdapterDevice extends EventEmitter {
     }
 
     // TODO: fix any
-    public propertyUpdated(p: string, v: any) {
+    public propertyUpdated(p: string, v: any): void {
         this.emit("debug", `state=${p}, value=${v}`);
         for (const k in this.props) {
             if (p === this.props[k].prop) {
@@ -320,7 +331,7 @@ export class MiioAdapterDevice extends EventEmitter {
         }
     }
 
-    public listen(props: Record<string, MiioProperty>) {
+    public listen(props: Record<string, MiioProperty>): void {
         this.props = props;
         for (const k in props) {
             if (props.hasOwnProperty(k)) {

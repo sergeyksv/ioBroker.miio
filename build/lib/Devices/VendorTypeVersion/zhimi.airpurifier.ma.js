@@ -6,7 +6,7 @@ const command_1 = require("../../Commands/command");
 const property_1 = require("../../Properties/property");
 class DeviceClass extends Airpurifier.DeviceClass {
     get deviceName() {
-        return "zhimi.airpurifier.m";
+        return "zhimi.airpurifier.ma";
     }
     get deviceType() {
         return "VendorTypeVersionDevice";

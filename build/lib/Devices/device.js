@@ -10,24 +10,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const events_1 = require("events");
 const tools_1 = require("../tools");
+const protocol2State_1 = require("./protocol2State");
 ;
 ;
 ;
 class MiioAdapterDevice extends events_1.EventEmitter {
     get deviceName() {
-        return "Device";
+        return protocol2State_1.protocol2ReadWriteState(this.vendor, this.type, this.version);
     }
     get deviceType() {
         return "MiioAdapterDevice";
     }
     get rwState() {
-        return {};
+        return protocol2State_1.protocol2ReadWriteState(this.vendor, this.type, this.version);
     }
     get roState() {
-        return {};
+        return protocol2State_1.protocol2ReadOnlyState(this.vendor, this.type, this.version);
     }
     get woState() {
-        return {};
+        return protocol2State_1.protocol2WriteOnlyState(this.vendor, this.type, this.version);
     }
     get states() {
         return tools_1.objectExtend({
@@ -160,6 +161,9 @@ class MiioAdapterDevice extends events_1.EventEmitter {
         super();
         this.miioDev = miioDev;
         this.miioID = miioDev.id.replace(/^miio:/, "");
+        this.vendor = miioDev.management.model.split(".")[0];
+        this.type = miioDev.management.model.split(".")[2];
+        this.version = miioDev.management.model.split(".")[3];
         this.props = {};
         // WARNING: Hack miio lib
         this.miioDev.propertyUpdated = this.propertyUpdated.bind(this);

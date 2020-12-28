@@ -21,7 +21,7 @@ import {
 
 export class DeviceClass extends Airpurifier.DeviceClass {
     public get deviceName() {
-        return "zhimi.airpurifier.v5";
+        return "zhimi.airpurifier.mb";
     }
 
     public get deviceType() {

@@ -9,27 +9,24 @@
     "name": "SchumyHao",
     "email": "schumyhaojl@126.com"
   },
-  "homepage": "https://github.com/smarthomefans/ioBroker.miio",
+  "contributors": {
+    "name": "dontobi",
+    "email": "github@myhome.zone"
+  },
+  "homepage": "https://github.com/dontobi/ioBroker.miio",
   "license": "MIT",
-  "keywords": [
-    "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation",
-    "xiaomi",
-    "miio",
-    "mijia"
-  ],
+  "keywords": [ "ioBroker","xiaomi","miio","mijia" ],
   "repository": {
     "type": "git",
     "url": "https://github.com/smarthomefans/ioBroker.miio"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^1.0.3",
-    "miio-lite": "^0.15.7"
+    "@iobroker/adapter-core": "^2.4.0",
+    "miio-lite": "^0.15.7",
+    "miio-dev": "^0.0.4"
   },
   "devDependencies": {
-    "@iobroker/testing": "^1.2.5",
+    "@iobroker/testing": "^2.3.0",
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
     "@types/gulp": "^4.0.6",
@@ -69,7 +66,7 @@
     "lint": "eslint --ext .ts src"
   },
   "bugs": {
-    "url": "https://github.com/smarthomefans/ioBroker.miio/issues"
+    "url": "https://github.com/dontobi/ioBroker.miio/issues"
   },
   "readmeFilename": "README.md"
 }

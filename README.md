@@ -50,6 +50,9 @@ This adapter controls devices which followed miIO protocol.
 
 
 ## Changelog
+### 0.0.14 (2020-12-28)
+* Added more devices (AirPurifiers)
+
 ### 0.0.13 (2019-09-19)
 * Fix device can not control after adapter restart
 
@@ -92,7 +95,7 @@ This adapter controls devices which followed miIO protocol.
 ## License
 MIT License
 
-Copyright (c) 2019 SchumyHao
+Copyright (c) 2020 Tobias S. <github@myhome.zone>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

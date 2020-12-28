@@ -128,7 +128,7 @@ class Controller extends events_1.EventEmitter {
                     }
                 }
             }
-            return new DeviceClass.DeviceClass(dev);
+            return new DeviceClass.DeviceClass(dev, vendor, type, version);
         });
     }
     findDeviceDefineInfo(token) {
@@ -196,10 +196,11 @@ class Controller extends events_1.EventEmitter {
                     model: mgmt.model,
                 },
                 configData: {
+                	id: miioID,
                     name: this.findDeviceDefineInfo(mgmt.token).name || mgmt.model,
                     ip: mgmt.address,
                     token: mgmt.token,
-                    polling: this.findDeviceDefineInfo(mgmt.token).polling || device.polling,
+                    polling: this.findDeviceDefineInfo(mgmt.token).polling || device.polling || 10000,
                 },
                 autoDiscovered: isAutoDiscovered,
                 device: device

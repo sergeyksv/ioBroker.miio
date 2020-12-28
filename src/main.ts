@@ -133,23 +133,23 @@ class Miio extends utils.Adapter {
     /**
      * Is called to set adapter connection status
      */
-    private setConnected(conn: boolean) {
+    private setConnected(conn: boolean): void {
         this.setState("info.connection", conn, true);
     }
 
-    private getObjectIDPrefix() {
+    private getObjectIDPrefix(): string {
         return this.namespace + ".devices";
     }
 
-    private getSelfObjectIDPrefix() {
+    private getSelfObjectIDPrefix(): string {
         return "devices";
     }
 
-    private generateChannelID(id: string) {
+    private generateChannelID(id: string): string {
         return this.getObjectIDPrefix() + "." + id;
     }
 
-    private generateSelfChannelID(id: string) {
+    private generateSelfChannelID(id: string): string {
         return this.getSelfObjectIDPrefix() + "." + id;
     }
 
@@ -157,7 +157,7 @@ class Miio extends utils.Adapter {
     /**
      * Is called to find exist miio objects
      */
-    private readObjects(callback: () => void) {
+    private readObjects(callback: () => void): void {
         this.getForeignObjects(this.getObjectIDPrefix() + ".*", (err, list) => {
             // Read miio objects in database. This maybe set in previous running status.
             // This can restore user defined object parameters.
@@ -166,7 +166,7 @@ class Miio extends utils.Adapter {
         });
     }
 
-    private miioAdapterUpdateState(id:string, state:string, val:any) {
+    private miioAdapterUpdateState(id: string, state: string, val: any): void {
         if (this.miioObjects[this.namespace + "." + id] ||
             this.miioObjects[this.namespace + "." + id + "." + state]) {
             //TODO: what if only id exist?
@@ -176,7 +176,7 @@ class Miio extends utils.Adapter {
         }
     }
 
-    private miioAdapterSyncObjects(instant: Miio) {
+    private miioAdapterSyncObjects(instant: Miio): void {
         function isStateObject(obj: ioBroker.Object): obj is ioBroker.StateObject {
             return obj.type === "state";
         }
@@ -212,12 +212,12 @@ class Miio extends utils.Adapter {
                 let changed = false;
                 for (const a in obj.common) {
                     if (obj.common.hasOwnProperty(a)) {
-                        if (!(<any>oObj.common)[a] ||
+                        if (!(oObj.common as any)[a] ||
                             ((a != "name") && (a !== "icon") && (a !== "role") && (a !== "custom") &&
-                                (<any>oObj.common)[a] !== (<any>obj.common)[a])) {
+                                (oObj.common as any)[a] !== (obj.common as any)[a])) {
                             // object value need update.
                             changed = true;
-                            (<any>oObj.common)[a] = (<any>obj.common)[a];
+                            (oObj.common as any)[a] = (obj.common as any)[a];
                         }
                     }
                 }
@@ -254,12 +254,12 @@ class Miio extends utils.Adapter {
                 let changed = false;
                 for (const a in obj.common) {
                     if (obj.common.hasOwnProperty(a)) {
-                        if (!(<any>oObj.common)[a] ||
+                        if (!(oObj.common as any)[a] ||
                             ((a != "name") && (a !== "icon") && (a !== "custom") &&
-                                (<any>oObj.common)[a] !== (<any>obj.common)[a])) {
+                                (oObj.common as any)[a] !== (obj.common as any)[a])) {
                             // object value need update.
                             changed = true;
-                            (<any>oObj.common)[a] = (<any>obj.common)[a];
+                            (oObj.common as any)[a] = (obj.common as any)[a];
                         }
                     }
                 }
@@ -299,7 +299,7 @@ class Miio extends utils.Adapter {
         });
     }
 
-    private miioAdapterCreateDevice(dev: miio.Device) {
+    private miioAdapterCreateDevice(dev: miio.Device): void {
         const id = this.generateSelfChannelID(dev.miioInfo.id);
         const isInitTasks = !this.tasks.length;
         const states =  dev.device.states;
@@ -359,7 +359,7 @@ class Miio extends utils.Adapter {
         isInitTasks && this.miioAdapterSyncObjects(this);
     }
 
-    private miioAdapterDeleteDevice(dev: miio.Device) {
+    private miioAdapterDeleteDevice(dev: miio.Device): void {
         const id = this.generateSelfChannelID(dev.miioInfo.id);
         const states =  dev.device.states;
 
@@ -371,7 +371,7 @@ class Miio extends utils.Adapter {
         this.delObject(`${id}`);
     }
 
-    private miioAdapterStop() {
+    private miioAdapterStop(): void {
         if (this.miioController) {
             try {
                 this.miioController.stop();
@@ -382,7 +382,7 @@ class Miio extends utils.Adapter {
         }
     }
 
-    private miioAdapterUpdateConfig(configData: miio.OptionDeviceDefine) {
+    private miioAdapterUpdateConfig(configData: miio.OptionDeviceDefine): void {
         for (let i = 0; i < this.config.devices.length; i++) {
             if (configData.token === this.config.devices[i].token) {
                 if ((configData.ip === this.config.devices[i].ip) && (configData.polling === this.config.devices[i].polling) && (configData.id === this.config.devices[i].id)) {
@@ -402,7 +402,7 @@ class Miio extends utils.Adapter {
         this.updateConfig && this.updateConfig(this.config);
     }
 
-    private async miioAdapterInit() {
+    private async miioAdapterInit(): Promise<void> {
         return new Promise((resolve, reject) => {
             this.readObjects(async () => {
                 this.setConnected(false);

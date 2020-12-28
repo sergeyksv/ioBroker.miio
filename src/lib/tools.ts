@@ -19,7 +19,7 @@ export function isArray(it: any): it is any[] {
     return Object.prototype.toString.call(it) === "[object Array]";
 }
 
-export function RGBToHex(rgb: number[]){
+export function RGBToHex(rgb: number[]): string{
     //RGB format is [255,255,255]
     let hexColor = "#";
     const hex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
@@ -43,7 +43,7 @@ export function RGBToHex(rgb: number[]){
     return hexColor;
 }
 
-export function HextoRGB(hex: string) {
+export function HextoRGB(hex: string): number[] {
     const rgb = [];
     const rawHex = hex.replace(/^#/, "");
 
@@ -54,7 +54,7 @@ export function HextoRGB(hex: string) {
     return rgb;
 }
 
-export function objectExtend(target: Record<string, any> , source: Record<string, any>) {
+export function objectExtend(target: Record<string, any>, source: Record<string, any>): Record<string, any> {
     if (!source) {
         return target;
     }
