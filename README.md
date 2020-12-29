@@ -3,14 +3,16 @@
     ioBroker.miio
 </h1>
 
-![Number of Installations](http://iobroker.live/badges/miio-installed.svg) ![Number of Installations](http://iobroker.live/badges/miio-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
+![Number of Installations](http://iobroker.live/badges/miio-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/miio-stable.svg) 
+[![NPM version](http://img.shields.io/npm/v/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
-[![Dependency Status](https://img.shields.io/david/smarthomefans/iobroker.miio.svg)](https://david-dm.org/smarthomefans/iobroker.miio)
-[![Known Vulnerabilities](https://snyk.io/test/github/smarthomefans/ioBroker.miio/badge.svg)](https://snyk.io/test/github/smarthomefans/ioBroker.miio)
+[![Dependency Status](https://img.shields.io/gh/dontobi/iobroker.miio.svg)](https://david-dm.org/dontobi/iobroker.miio)
+[![Known Vulnerabilities](https://snyk.io/test/github/dontobi/ioBroker.miio/badge.svg)](https://snyk.io/test/github/dontobi/ioBroker.miio)
 
 [![NPM](https://nodei.co/npm/iobroker.miio.png?downloads=true)](https://nodei.co/npm/iobroker.miio/)
 
-**Tests:** Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/smarthomefans/ioBroker.miio/master.svg)](https://travis-ci.org/smarthomefans/ioBroker.miio)
+**Tests:** Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/dontobi/ioBroker.miio/master.svg)](https://travis-ci.org/dontobi/ioBroker.miio)
 
 ## miio adapter for ioBroker
 
@@ -18,33 +20,45 @@ This adapter controls devices which followed miIO protocol.
 
 ## Current supported device type
 
-|type|icon|model|Tested|
----|---|---|---
-|airfresh|![](admin/icons/zhimi-airfresh-va2.png)|zhimi-airfresh-va2|❌
-|airmonitor|![]()||❌
-|airpurifier|![](admin/icons/zhimi.airpurifier.m1.png)|zhimi.airpurifier.m1|❌
-|airpurifier|![](admin/icons/zhimi.airpurifier.v1.png)|zhimi.airpurifier.v1|❌
-|airpurifier|![](admin/icons/zhimi.airpurifier.v2.png)|zhimi.airpurifier.v2|❌
-|airpurifier|![](admin/icons/zhimi.airpurifier.v3.png)|zhimi.airpurifier.v3|❌
-|airpurifier|![](admin/icons/zhimi.airpurifier.v6.png)|zhimi.airpurifier.v6|❌
-|fan|![](admin/icons/zhimi.fan.v2.png)|zhimi.fan.v2|✅
-|humidifier|![](admin/icons/zhimi.humidifier.ca1.png)|zhimi.humidifier.ca1|❌
-|humidifier|![](admin/icons/zhimi.humidifier.v1.png)|zhimi.humidifier.v1|❌
-|kettle|![](admin/icons/yunmi.kettle.r1.png)|yunmi.kettle.r1|✅
-|light|![](admin/icons/philips.light.bulb.png)|philips.light.bulb|✅
-|light|![](admin/icons/philips.light.sread1.png)|philips.light.sread1|✅
-|light|![](admin/icons/yeelink.light.color1.png)|yeelink.light.color1|✅
-|light|![](admin/icons/yeelink.light.lamp1.png)|yeelink.light.lamp1|✅
-|light|![](admin/icons/yeelink.light.mono1.png)|yeelink.light.mono1|✅
-|light|![](admin/icons/yeelink.light.strip1.png)|yeelink.light.mono1|✅
-|plug|![](admin/icons/chuangmi.plug.m1.png)|chuangmi.plug.m1|❌
-|plug|![](admin/icons/chuangmi.plug.v1.png)|chuangmi.plug.v1|❌
-|plug|![](admin/icons/chuangmi.plug.v2.png)|chuangmi.plug.v2|❌
-|plug|![](admin/icons/chuangmi.plug.v3.png)|chuangmi.plug.v3|✅
-|powerstrip|![](admin/icons/qmi.powerstrip.v1.png)|qmi.powerstrip.v1|❌
-|powerstrip|![](admin/icons/zimi.powerstrip.v2.png)|zimi.powerstrip.v2|❌
-|waterpuri|![](admin/icons/yunmi.waterpuri.lx3.png)|yunmi.waterpuri.lx3|✅
-|waterpuri|![](admin/icons/yunmi.waterpuri.v2.png)|yunmi.waterpuri.v2|✅
+| Name                        | Type        | Model                 | Tested |
+|---|---|---|---|---|
+| Fresh Air System            | airfresh    | zhimi-airfresh-va2    | ❌     |
+| Air Purifier v1             | airpurifier | zhimi.airpurifier.v1  | ❌     |
+| Air Purifier v2             | airpurifier | zhimi.airpurifier.v2  | ❌     |
+| Air Purifier v3             | airpurifier | zhimi.airpurifier.v3  | ❌     |
+| Air Purifier v5             | airpurifier | zhimi.airpurifier.v5  | ❌     |
+| Air Purifier Pro            | airpurifier | zhimi.airpurifier.v6  | ❌     |
+| Air Purifier Pro v7         | airpurifier | zhimi.airpurifier.v7  | ❌     |
+| Air Purifier 2 (mini)       | airpurifier | zhimi.airpurifier.m1  | ❌     |
+| Air Purifier (mini)         | airpurifier | zhimi.airpurifier.m2  | ❌     |
+| Air Purifier 2s             | airpurifier | zhimi.airpurifier.mc1 | ❌     |
+| Air Purifier 2h             | airpurifier | zhimi.airpurifier.mc2 | ✅     |
+| Air Purifier 3              | airpurifier | zhimi.airpurifier.ma4 | ❌     |
+| Air Purifier 3h             | airpurifier | zhimi.airpurifier.mb3 | ❌     |
+| Air Purifier Super          | airpurifier | zhimi.airpurifier.sa2 | ❌     |
+| Air Purifier Super 2        | airpurifier | zhimi.airpurifier.sa2 | ❌     |
+| Pedestal Fan v2             | fan         | zhimi.fan.v2          | ✅     |
+| Pedestal Fan v3             | fan         | zhimi.fan.v3          | ❌     |
+| Pedestal Fan ZA4            | fan         | zhimi.fan.za4         | ❌     |
+| Air Humidifier              | humidifier  | zhimi.humidifier.v1   | ❌     |
+| Air Humidifier              | humidifier  | zhimi.humidifier.ca1  | ❌     |
+| Air Humidifier Evaporator 2 | humidifier  | zhimi.humidifier.ca4  | ❌     |
+| Desk Hot Water Dispenser    | kettle      | yunmi.kettle.r1       | ✅     |
+| Philips Light Bulb          | light       | philips.light.bulb    | ✅     |
+| Philips Eyecare Smart Lamp  | light       | philips.light.sread1  | ✅     |
+| Yeelink Color Bulb          | light       | yeelink.light.color1  | ✅     |
+| Yeelink Desk Lamp           | light       | yeelink.light.lamp1   | ✅     |
+| Yeelink LED Bulb            | light       | yeelink.light.mono1   | ✅     |
+| Yeelink LED Bulb v2         | light       | yeelink.light.mono2   | ❌     |
+| Yeelink Light Strip         | light       | yeelink.light.strip1  | ✅     |
+| Smart WiFi Socket           | plug        | chuangmi.plug.m1      | ❌     |
+| Chuangmi Plug v1            | plug        | chuangmi.plug.v1      | ❌     |
+| Chuangmi Plug v2            | plug        | chuangmi.plug.v2      | ❌     |
+| Chuangmi Plug v3            | plug        | chuangmi.plug.v3      | ✅     |
+| Smart Power Strip           | powerstrip  | qmi.powerstrip.v1     | ❌     |
+| Smart Power Strip           | powerstrip  | zimi.powerstrip.v2    | ❌     |
+| Water Purifier              | waterpuri   | yunmi.waterpuri.lx3   | ✅     |
+| Water Purifier v2           | waterpuri   | yunmi.waterpuri.v2    | ✅     |
 
 - If any device you have tested, please create a issue and tell me the result and the device model.
 
