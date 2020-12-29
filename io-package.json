@@ -70,7 +70,8 @@
             "de": "Dieser Adapter steuert Geräte, die dem miIO-Protokoll folgen."
         },
         "authors": [
-            "SchumyHao <schumyhaojl@126.com>"
+            "SchumyHao <schumyhaojl@126.com>",
+            "dontobi <github@myhome.zone>"
         ],
         "keywords": [
             "ioBroker",
@@ -83,8 +84,8 @@
         "main": "build/main.js",
         "icon": "miio.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/smarthomefans/ioBroker.miio/master/admin/miio.png",
-        "readme": "https://github.com/smarthomefans/ioBroker.miio/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/dontobi/ioBroker.miio/master/admin/miio.png",
+        "readme": "https://github.com/dontobi/ioBroker.miio/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
         "type": "iot-systems",
