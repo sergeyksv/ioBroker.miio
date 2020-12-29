@@ -7,7 +7,7 @@
 ![Number of Installations](http://iobroker.live/badges/miio-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
-[![Dependency Status](https://img.shields.io/gh/dontobi/iobroker.miio.svg)](https://david-dm.org/dontobi/iobroker.miio)
+[![Dependency Status](https://img.shields.io/david/dontobi/iobroker.miio.svg)](https://david-dm.org/dontobi/iobroker.miio)
 [![Known Vulnerabilities](https://snyk.io/test/github/dontobi/ioBroker.miio/badge.svg)](https://snyk.io/test/github/dontobi/ioBroker.miio)
 
 [![NPM](https://nodei.co/npm/iobroker.miio.png?downloads=true)](https://nodei.co/npm/iobroker.miio/)
@@ -21,7 +21,7 @@ This adapter controls devices which followed miIO protocol.
 ## Current supported device type
 
 | Name                        | Type        | Model                 | Tested |
-|---|---|---|---|---|
+|---|---|---|---|
 | Fresh Air System            | airfresh    | zhimi-airfresh-va2    | ❌     |
 | Air Purifier v1             | airpurifier | zhimi.airpurifier.v1  | ❌     |
 | Air Purifier v2             | airpurifier | zhimi.airpurifier.v2  | ❌     |
