@@ -7,12 +7,12 @@
 ![Number of Installations](http://iobroker.live/badges/miio-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.miio.svg)](https://www.npmjs.com/package/iobroker.miio)
-[![Dependency Status](https://img.shields.io/david/dontobi/iobroker.miio.svg)](https://david-dm.org/dontobi/iobroker.miio)
+[![dependencies Status](https://status.david-dm.org/gh/dontobi/iobroker.miio.svg)](https://david-dm.org/dontobi/iobroker.miio)
 [![Known Vulnerabilities](https://snyk.io/test/github/dontobi/ioBroker.miio/badge.svg)](https://snyk.io/test/github/dontobi/ioBroker.miio)
 
 [![NPM](https://nodei.co/npm/iobroker.miio.png?downloads=true)](https://nodei.co/npm/iobroker.miio/)
 
-**Tests:** Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/dontobi/ioBroker.miio/master.svg)](https://travis-ci.org/dontobi/ioBroker.miio)
+**Tests:** Linux/Mac/Windows: [![Build Status](https://travis-ci.com/dontobi/ioBroker.miio.svg?branch=master)](https://travis-ci.com/dontobi/ioBroker.miio)
 
 ## miio adapter for ioBroker
 
