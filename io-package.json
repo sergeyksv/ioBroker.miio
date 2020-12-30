@@ -91,6 +91,8 @@
         "type": "iot-systems",
         "compact": true,
         "materialize": true,
+        "connectionType": "local",
+        "dataSource": "poll",
         "dependencies": [
             {
                 "admin": ">=3.0.0"

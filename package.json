@@ -18,7 +18,7 @@
   "keywords": [ "ioBroker","xiaomi","miio","mijia" ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/smarthomefans/ioBroker.miio"
+    "url": "git+https://github.com/dontobi/ioBroker.miio.git"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
