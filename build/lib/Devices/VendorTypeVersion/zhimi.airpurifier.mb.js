@@ -6,7 +6,7 @@ const command_1 = require("../../Commands/command");
 const property_1 = require("../../Properties/property");
 class DeviceClass extends Airpurifier.DeviceClass {
     get deviceName() {
-        return "zhimi.airpurifier.mb";
+        return "zhimi.airpurifier.mc";
     }
     get deviceType() {
         return "VendorTypeVersionDevice";
@@ -17,19 +17,9 @@ class DeviceClass extends Airpurifier.DeviceClass {
                 command: new command_1.SetLevelFavorite(),
                 property: new property_1.FavoriteLevel(),
             },
-            volume: {
-                command: new command_1.SetVolume(),
-                property: new property_1.Volume(),
-            },
             learnSleepMode: {
                 command: new command_1.SetActSleep(),
                 property: new property_1.ActSleep(),
-            },
-            buzzer: {
-                delete: true,
-            },
-            ledBrightnessLevel: {
-                delete: true,
             }
         });
     }
@@ -41,17 +31,17 @@ class DeviceClass extends Airpurifier.DeviceClass {
             humidity: {
                 property: new property_1.Humidity(),
             },
-            temperature: {
+            Temperature: {
                 property: new property_1.TempDec(),
             },
             usedTime: {
                 property: new property_1.UseTime(),
             },
-            motor2Speed: {
-                property: new property_1.Motor2Speed(),
-            },
             purifyVolume: {
                 property: new property_1.PurifyVolume(),
+            },
+            illuminance: {
+                delete: true,
             }
         });
     }

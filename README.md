@@ -14,9 +14,11 @@
 
 **Tests:** Linux/Mac/Windows: [![Build Status](https://travis-ci.com/dontobi/ioBroker.miio.svg?branch=master)](https://travis-ci.com/dontobi/ioBroker.miio)
 
+
 ## miio adapter for ioBroker
 
 This adapter controls devices which followed miIO protocol.
+
 
 ## Current supported device type
 
@@ -53,7 +55,6 @@ This adapter controls devices which followed miIO protocol.
 | Yeelink Light Strip         | light       | yeelink.light.strip1  | ✅     |
 | Smart WiFi Socket           | plug        | chuangmi.plug.m1      | ❌     |
 | Chuangmi Plug v1            | plug        | chuangmi.plug.v1      | ❌     |
-| Chuangmi Plug v2            | plug        | chuangmi.plug.v2      | ❌     |
 | Chuangmi Plug v3            | plug        | chuangmi.plug.v3      | ✅     |
 | Smart Power Strip           | powerstrip  | qmi.powerstrip.v1     | ❌     |
 | Smart Power Strip           | powerstrip  | zimi.powerstrip.v2    | ❌     |
@@ -64,6 +65,7 @@ This adapter controls devices which followed miIO protocol.
 
 
 ## Changelog
+
 ### 0.0.14 (2020-12-28)
 * Added more devices (AirPurifiers)
 
@@ -106,7 +108,9 @@ This adapter controls devices which followed miIO protocol.
 ### 0.0.1
 * (SchumyHao) initial release
 
+
 ## License
+
 MIT License
 
 Copyright (c) 2020 Tobias S. <github@myhome.zone>

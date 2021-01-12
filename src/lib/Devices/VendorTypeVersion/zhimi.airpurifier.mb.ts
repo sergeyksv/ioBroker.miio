@@ -4,8 +4,7 @@ import { Device } from "miio-lite";
 import { objectExtend } from "../../tools";
 import {
     SetLevelFavorite,
-    SetActSleep,
-    SetVolume
+    SetActSleep
 } from "../../Commands/command";
 import {
     AverageAqi,
@@ -14,14 +13,12 @@ import {
     FavoriteLevel,
     UseTime,
     PurifyVolume,
-    ActSleep,
-    Motor2Speed,
-    Volume
+    ActSleep
 } from "../../Properties/property";
 
 export class DeviceClass extends Airpurifier.DeviceClass {
     public get deviceName() {
-        return "zhimi.airpurifier.mb";
+        return "zhimi.airpurifier.mc";
     }
 
     public get deviceType() {
@@ -34,19 +31,9 @@ export class DeviceClass extends Airpurifier.DeviceClass {
                 command: new SetLevelFavorite(),
                 property: new FavoriteLevel(),
             },
-            volume: {
-                command: new SetVolume(),
-                property: new Volume(),
-            },
             learnSleepMode: {
                 command: new SetActSleep(),
                 property: new ActSleep(),
-            },
-            buzzer: {
-                delete: true,
-            },
-            ledBrightnessLevel: {
-                delete: true,
             }
         });
     }
@@ -59,17 +46,17 @@ export class DeviceClass extends Airpurifier.DeviceClass {
             humidity: {
                 property: new Humidity(),
             },
-            temperature: {
+            Temperature: {
                 property: new TempDec(),
             },
             usedTime: {
                 property: new UseTime(),
             },
-            motor2Speed: {
-                property: new Motor2Speed(),
-            },
             purifyVolume: {
                 property: new PurifyVolume(),
+            },
+            illuminance: {
+                delete: true,
             }
         });
     }
