@@ -16,7 +16,7 @@ const protocol2State_1 = require("./protocol2State");
 ;
 class MiioAdapterDevice extends events_1.EventEmitter {
     get deviceName() {
-        return protocol2State_1.protocol2ReadWriteState(this.vendor, this.type, this.version);
+        return `${this.vendor}.${this.type}.${this.version}`;
     }
     get deviceType() {
         return "MiioAdapterDevice";

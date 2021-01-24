@@ -411,6 +411,7 @@ class Miio extends utils.Adapter {
                     ("[]" === JSON.stringify(this.config.devices))) {
                     if (!this.config.autoDiscover) {
                         this.log.error("No device defined and discover is also disabled.");
+                        reject(new Error("No device defined and discover is also disabled."));
                     }
                 }
 
