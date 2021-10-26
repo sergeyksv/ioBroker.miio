@@ -32,6 +32,8 @@ class Miio extends utils.Adapter {
         super({
             ...options,
             name: "miio",
+            objects: undefined,
+            states: undefined
         });
         this.on("ready", this.onReady.bind(this));
         this.on("stateChange", this.onStateChange.bind(this));
@@ -105,7 +107,7 @@ class Miio extends utils.Adapter {
             const stateName = id.substring(channelEnd + 1);
 
             if (this.miioObjects[channelId] && this.miioObjects[channelId].native) {
-                state = state.val;
+                state = state.val as unknown as ioBroker.State;
                 this.log.debug(`onStateChange. state=${stateName} val=${JSON.stringify(state)}`);
                 this.miioController.setState(this.miioObjects[channelId].native.id, stateName, state);
             }
@@ -161,7 +163,8 @@ class Miio extends utils.Adapter {
         this.getForeignObjects(this.getObjectIDPrefix() + ".*", (err, list) => {
             // Read miio objects in database. This maybe set in previous running status.
             // This can restore user defined object parameters.
-            this.miioObjects = list;
+            if (list)
+                this.miioObjects = list;
             callback && callback();
         });
     }

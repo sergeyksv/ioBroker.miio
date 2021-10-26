@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.protocol2WriteOnlyState = exports.protocol2ReadOnlyState = exports.protocol2ReadWriteState = void 0;
 const miio_dev_1 = require("miio-dev");
 const command_1 = require("../Commands/command");
 const property_1 = require("../Properties/property");

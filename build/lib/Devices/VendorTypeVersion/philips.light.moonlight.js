@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceClass = void 0;
 const PhilipsLight = require("../VendorType/philips.light");
 const tools_1 = require("../../tools");
 const command_1 = require("../../Commands/command");
@@ -12,7 +13,7 @@ class DeviceClass extends PhilipsLight.DeviceClass {
         return "VendorTypeVersionDevice";
     }
     get rwState() {
-        return tools_1.objectExtend(super.rwState, {
+        return (0, tools_1.objectExtend)(super.rwState, {
             RGB: {
                 command: new command_1.SetRgb(),
                 property: new property_1.Rgb(),

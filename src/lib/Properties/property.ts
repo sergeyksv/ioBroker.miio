@@ -267,6 +267,28 @@ export class Co2 extends MiioProperty {
     }
 };
 
+export class Pm25 extends MiioProperty {
+    constructor() {
+        super("pm25", {
+            name: "pm25",
+            desc: "Particulate Matter 2.5 (PM25)",
+            unit: "ppm",
+            type: "number"
+        });
+    }
+};
+
+export class Tvoc extends MiioProperty {
+    constructor() {
+        super("tvoc", {
+            name: "tvoc",
+            desc: "Total volatile organic compounds",
+            unit: "ppm",
+            type: "number"
+        });
+    }
+};
+
 export class LedLevel extends MiioProperty {
     constructor() {
         super("led_level", {

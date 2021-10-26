@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceClass = void 0;
 const Fan = require("../Type/fan");
 const tools_1 = require("../../tools");
 const property_1 = require("../../Properties/property");
@@ -11,10 +12,10 @@ class DeviceClass extends Fan.DeviceClass {
         return "VendorTypeVersionDevice";
     }
     get rwState() {
-        return tools_1.objectExtend(super.rwState, {});
+        return (0, tools_1.objectExtend)(super.rwState, {});
     }
     get roState() {
-        return tools_1.objectExtend(super.roState, {
+        return (0, tools_1.objectExtend)(super.roState, {
             humidity: {
                 property: new property_1.Humidity(),
             },

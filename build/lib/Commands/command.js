@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SetDry = exports.SetVolume = exports.SetActSleep = exports.SetEyeCare = exports.SetAmbBright = exports.EnableAmb = exports.SetUsbPowerChuangmiPlugV3 = exports.SetPowerChuangmiPlugV3 = exports.SetWifiLed = exports.SetPowerPrice = exports.SetPs = exports.SetRgb = exports.SetCtAbx = exports.SetCct = exports.SetBright = exports.SetDrinkRemindTime = exports.SetDrinkRemindEnable = exports.SetTempeSetup = exports.SetLimitHum = exports.SetPoweroffTime = exports.SetAngleEnable = exports.SetSpeedLevel = exports.SetNaturalLevel = exports.SetAngle = exports.SetLedB = exports.SetNightState = exports.SetTimeState = exports.SetLevelFavorite = exports.SetBuzzer = exports.SetChildLock = exports.SetLed = exports.SetMode = exports.SetMove = exports.SetPower = exports.MiioCommand = void 0;
 ;
 class MiioCommand {
     constructor(command, opt) {
@@ -58,10 +59,10 @@ class SetMove extends MiioCommand {
     constructor() {
         super("set_move", {
             name: "set move",
-            desc: "Set move",
+            desc: "Set move right/left",
             para: [{
                     type: "string",
-                    enum: ["left", "right"]
+                    enum: ["right", "left"]
                 }]
         });
     }

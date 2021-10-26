@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceClass = void 0;
 const YeelinkLight = require("../VendorType/yeelink.light");
 const tools_1 = require("../../tools");
 class DeviceClass extends YeelinkLight.DeviceClass {
@@ -10,7 +11,7 @@ class DeviceClass extends YeelinkLight.DeviceClass {
         return "VendorTypeVersionDevice";
     }
     get rwState() {
-        return tools_1.objectExtend(super.rwState, {
+        return (0, tools_1.objectExtend)(super.rwState, {
             RGB: {
                 delete: true
             }

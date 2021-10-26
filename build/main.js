@@ -3,10 +3,11 @@
  * Created with @iobroker/create-adapter v1.14.0
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -17,7 +18,7 @@ const utils = require("@iobroker/adapter-core");
 const miio = require("./lib/miio");
 class Miio extends utils.Adapter {
     constructor(options = {}) {
-        super(Object.assign({}, options, { name: "miio" }));
+        super(Object.assign(Object.assign({}, options), { name: "miio", objects: undefined, states: undefined }));
         /**
          * Save latest miio adapter objects.
          */
@@ -131,7 +132,8 @@ class Miio extends utils.Adapter {
         this.getForeignObjects(this.getObjectIDPrefix() + ".*", (err, list) => {
             // Read miio objects in database. This maybe set in previous running status.
             // This can restore user defined object parameters.
-            this.miioObjects = list;
+            if (list)
+                this.miioObjects = list;
             callback && callback();
         });
     }

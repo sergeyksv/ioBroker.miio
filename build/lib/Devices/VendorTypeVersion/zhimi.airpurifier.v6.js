@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceClass = void 0;
 const Airpurifier = require("../Type/airpurifier");
 const tools_1 = require("../../tools");
 const command_1 = require("../../Commands/command");
@@ -12,7 +13,7 @@ class DeviceClass extends Airpurifier.DeviceClass {
         return "VendorTypeVersionDevice";
     }
     get rwState() {
-        return tools_1.objectExtend(super.rwState, {
+        return (0, tools_1.objectExtend)(super.rwState, {
             favoriteLevel: {
                 command: new command_1.SetLevelFavorite(),
                 property: new property_1.FavoriteLevel(),
@@ -34,7 +35,7 @@ class DeviceClass extends Airpurifier.DeviceClass {
         });
     }
     get roState() {
-        return tools_1.objectExtend(super.roState, {
+        return (0, tools_1.objectExtend)(super.roState, {
             averageAqi: {
                 property: new property_1.AverageAqi(),
             },

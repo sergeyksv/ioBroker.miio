@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Filter1State = exports.PowerConsumeRate = exports.PowerstripMode = exports.Current = exports.Temperature = exports.DrinkTimeCount = exports.WorkMode = exports.DrinkRemindTime = exports.DrinkRemind = exports.MinSetTempe = exports.SetupTempe = exports.CurrTempe = exports.WaterRemainTime = exports.Tds = exports.LimitHum = exports.HwVersion = exports.PoweroffTime = exports.AcPower = exports.Speed = exports.AngleEnable = exports.SpeedLevel = exports.NaturalLevel = exports.Angle = exports.LedB = exports.Bright = exports.Filter1Life = exports.NightState = exports.TimeState = exports.UsbState = exports.Battery = exports.LedLevel = exports.Tvoc = exports.Pm25 = exports.Co2 = exports.FavoriteLevel = exports.UseTime = exports.Humidity = exports.TempDec = exports.Buzzer = exports.ChildLock = exports.Led = exports.Motor1Speed = exports.F1HourUsed = exports.FilterLife = exports.Mode = exports.AverageAqi = exports.Aqi = exports.Move = exports.Power = exports.MiioProperty = void 0;
+exports.Dry = exports.Depth = exports.BatState = exports.ButtonPressed = exports.BatCharge = exports.Motor2Speed = exports.ActSleep = exports.PurifyVolume = exports.EyeCare = exports.AmbValue = exports.AmbStatus = exports.Bri = exports.Pow = exports.GetPower = exports.UsbOn = exports.On = exports.WifiLed = exports.PowerPrice = exports.TTDS = exports.RFP = exports.RFD = exports.RCFP = exports.RCFD = exports.PFP = exports.PFD = exports.FTDS = exports.FCFP = exports.FCFD = exports.SaveState = exports.Rgb = exports.Ct = exports.ElecLeakage = exports.PowerFactor = exports.Voltage = exports.Cct = exports.ElecvalState = exports.UvState = exports.UvLife = exports.Usage = exports.Filter = exports.Volume = exports.Level = exports.State = exports.Life = exports.FilterState = void 0;
 ;
 ;
 class MiioProperty {
@@ -56,6 +58,18 @@ class Power extends MiioProperty {
 }
 exports.Power = Power;
 ;
+class Move extends MiioProperty {
+    constructor() {
+        super("move", {
+            name: "move",
+            desc: "Current device move state",
+            type: "string",
+            enum: ["left", "right"]
+        });
+    }
+}
+exports.Move = Move;
+;
 class Aqi extends MiioProperty {
     constructor() {
         super("aqi", {
@@ -91,18 +105,6 @@ class Mode extends MiioProperty {
     }
 }
 exports.Mode = Mode;
-;
-class Move extends MiioProperty {
-    constructor() {
-        super("move", {
-            name: "move",
-            desc: "move to",
-            type: "string",
-            enum: ["left", "right"]
-        });
-    }
-}
-exports.Move = Move;
 ;
 class FilterLife extends MiioProperty {
     constructor() {
@@ -250,6 +252,30 @@ class Co2 extends MiioProperty {
     }
 }
 exports.Co2 = Co2;
+;
+class Pm25 extends MiioProperty {
+    constructor() {
+        super("pm25", {
+            name: "pm25",
+            desc: "Particulate Matter 2.5 (PM25)",
+            unit: "ppm",
+            type: "number"
+        });
+    }
+}
+exports.Pm25 = Pm25;
+;
+class Tvoc extends MiioProperty {
+    constructor() {
+        super("tvoc", {
+            name: "tvoc",
+            desc: "Total volatile organic compounds",
+            unit: "ppm",
+            type: "number"
+        });
+    }
+}
+exports.Tvoc = Tvoc;
 ;
 class LedLevel extends MiioProperty {
     constructor() {

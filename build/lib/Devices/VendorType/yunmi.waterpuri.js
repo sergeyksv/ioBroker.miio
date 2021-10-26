@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceClass = void 0;
 const WaterPuri = require("../Type/waterpuri");
 const tools_1 = require("../../tools");
 const property_1 = require("../../Properties/property");
@@ -11,14 +12,14 @@ class DeviceClass extends WaterPuri.DeviceClass {
         return "VendorTypeDevice";
     }
     get rwState() {
-        return tools_1.objectExtend(super.rwState, {
+        return (0, tools_1.objectExtend)(super.rwState, {
             power: {
                 delete: true
             }
         });
     }
     get roState() {
-        return tools_1.objectExtend(super.roState, {
+        return (0, tools_1.objectExtend)(super.roState, {
             FrontActiveCarbonFilter: {
                 property: new property_1.FCFD(),
             },
