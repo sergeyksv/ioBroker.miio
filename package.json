@@ -1,16 +1,19 @@
 {
   "name": "iobroker.miio",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "This adapter controls devices which followed miIO protocol.",
   "author": {
     "name": "SchumyHao",
     "email": "schumyhaojl@126.com"
   },
-  "contributors": {
+  "contributors": [{
     "name": "dontobi",
     "email": "github@myhome.zone"
-  },
-  "homepage": "https://github.com/dontobi/ioBroker.miio",
+  }, {
+    "name": "sergeyksv",
+    "email": "sergeyksv@gmail.com"
+  }],
+  "homepage": "https://github.com/sergeyksv/ioBroker.miio",
   "license": "MIT",
   "keywords": [ "ioBroker","xiaomi","miio","mijia" ],
   "repository": {
@@ -19,7 +22,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
-    "miio-lite": "^0.15.7",
+    "miio-lite": "git://github.com/sergeyksv/miio",
     "miio-dev": "^0.0.6"
   },
   "devDependencies": {

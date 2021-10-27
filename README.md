@@ -60,11 +60,15 @@ This adapter controls devices which followed miIO protocol.
 | Smart Power Strip           | powerstrip  | zimi.powerstrip.v2    | ❌     |
 | Water Purifier              | waterpuri   | yunmi.waterpuri.lx3   | ✅     |
 | Water Purifier v2           | waterpuri   | yunmi.waterpuri.v2    | ✅     |
+| ClearGrass Air Monitor      | airmonitor  | cgllc.airmonitor.s1   | ✅     |
 
 - If any device you have tested, please create a issue and tell me the result and the device model.
 
 
 ## Changelog
+
+### 0.0.15 (2021-10-27)
+* Added Clear Grass Air Monitor
 
 ### 0.0.14 (2020-12-28)
 * Added more devices (AirPurifiers)

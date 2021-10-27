@@ -272,7 +272,7 @@ export class Pm25 extends MiioProperty {
         super("pm25", {
             name: "pm25",
             desc: "Particulate Matter 2.5 (PM25)",
-            unit: "ppm",
+            unit: "ug/m3",
             type: "number"
         });
     }
@@ -283,8 +283,9 @@ export class Tvoc extends MiioProperty {
         super("tvoc", {
             name: "tvoc",
             desc: "Total volatile organic compounds",
-            unit: "ppm",
-            type: "number"
+            unit: "mg/m3",
+            type: "number",
+            mapper: v => v*0.001
         });
     }
 };
