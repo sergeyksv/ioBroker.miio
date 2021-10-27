@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "miio",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "news": {
+            "0.0.15": {
+                "en": "Added more devices (Clear Grass Airmonitor)",
+                "de": "Weitere Geräte hinzugefügt (Clear Grass Airmonitor)"
+            },            
             "0.0.14": {
                 "en": "Added more devices (AirPurifier)",
                 "de": "Weitere Geräte hinzugefügt (AirPurifier)"
